@@ -144,3 +144,12 @@ Everything under `scripts/`, plus `contracts/repository-naming.yaml` and
 `contracts/shape-pin.yaml`. Edit them upstream, not here — a local edit is
 reported as drift. `AGENTS.md` and `CLAUDE.md` have no row and are this
 project's own.
+
+## Posture
+
+This repository carries the openDox project's posture files:
+[CONTRIBUTING.md](CONTRIBUTING.md) (how to contribute across all three
+repositories), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and
+[SECURITY.md](SECURITY.md) (security reports go through GitHub's private
+vulnerability-reporting form, never a public issue). All three repositories
+share the [Apache License 2.0](LICENSE).
