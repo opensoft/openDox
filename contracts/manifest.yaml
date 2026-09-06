@@ -1,0 +1,13 @@
+schema_version: 1
+kind: contract-manifest
+
+project: opendox
+
+# The project has released no contract bundle yet. A contract bundle is
+# added here, as an entry below, only when one is actually cut and
+# published — this field and `entries: []` are the honest starting state
+# for a project bootstrapped 2026-09-06 and not the absence of a step
+# somebody forgot.
+contract_bundle_version: none
+
+entries: []
