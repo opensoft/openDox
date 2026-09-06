@@ -152,4 +152,6 @@ This repository carries the openDox project's posture files:
 repositories), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and
 [SECURITY.md](SECURITY.md) (security reports go through GitHub's private
 vulnerability-reporting form, never a public issue). All three repositories
-share the [Apache License 2.0](LICENSE).
+share the [Apache License 2.0](LICENSE). In all three, the `validate` check
+is a required status check on `main`, enforced by a repository ruleset — see
+[docs/branch-protection.md](docs/branch-protection.md).
