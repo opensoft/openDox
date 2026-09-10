@@ -20,9 +20,17 @@ entries: []
 # MACHINE-READ record of the openDox carve lands HERE, in each assembly root's
 # hand-authored `contracts/manifest.yaml` — the object whose single commit
 # names both legs — as a top-level `carved_from:` mapping. It is one of three
-# records: `carve_commit:` in the pin files is the referent that survives into
-# the tree the gate reads, and `docs/opendox-cutover-runbook.md` is the
-# procedure. There is deliberately NO bare `CARVE_COMMIT` file: the
+# records. Record 2 is `carve_commit:` in the pin files that pin this WHOLE
+# carved assembly root from downstream — openXdox's
+# `contracts/opendox-pin.yaml` (runbook § 4.2) and openxFactory's
+# `contracts/openxdox-pin.yaml` (§ 5.1) — the referent that survives into the
+# tree the gate reads. It is NOT in this project's own leg pins: neither
+# `contracts/code-pin.yaml` nor `contracts/spec-pin.yaml` defines
+# `carve_commit:`, because a leg pin is an ordinary submodule pin that exists
+# independent of any carve, and § 6's Phase-3 checklist moves only their
+# `commit:` and `digests.tree_sha256:`. Record 3 is
+# `docs/opendox-cutover-runbook.md`, the procedure. There is deliberately NO
+# bare `CARVE_COMMIT` file: the
 # openXwallet carve rejected that by name, and `opensoft/openXwallet`'s own
 # `contracts/manifest.yaml` carries `carved_from: {repository, commit}` as the
 # precedent this widens. "MACHINE-READ" is that precedent's own word, not a
@@ -47,8 +55,9 @@ entries: []
 # nothing and is checked by nothing here. The one piece of running code that
 # reads the record lives in openxFactory, whose
 # `scripts/verify-carve-arrival.py` refuses `arrival-carved-from-mismatch`
-# unless the two fields below name the carve manifest's own
-# `source_repository` and `carve_commit`; run from an openxFactory checkout:
+# unless the VALUES at `carved_from.repository` and `carved_from.commit`
+# below equal the carve manifest's own `source_repository` and `carve_commit`
+# values; run from an openxFactory checkout:
 #
 #   python3 scripts/verify-carve-arrival.py --destination opendox_root \
 #       --dest-root <this checkout> --source-repo . --phase A
