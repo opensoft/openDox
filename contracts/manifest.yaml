@@ -3,14 +3,109 @@ kind: contract-manifest
 
 project: opendox
 
-# The project has released no contract bundle yet. A contract bundle is
-# added here, as an entry below, only when one is actually cut and
-# published — this field and `entries: []` are the honest starting state
-# for a project bootstrapped 2026-09-06 and not the absence of a step
-# somebody forgot.
-contract_bundle_version: none
+# THE FIRST BUNDLE. `contract_bundle_version` stood at `none` with `entries: []`
+# from the 2026-09-06 bootstrap until this commit, which is the honest starting
+# state for a project that had released nothing — not a step somebody forgot.
+# `dox-v1.0` is cut under RULED (a), Brett Heap 2026-09-21, `opensoft/openxFactory`
+# issue #656 comment 5767052465: "(a) for both, cut the tags when the drafts are
+# green." The annotated tag over the commit that names both legs plus these
+# entries is the operator's act (runbook § 9 Phase 6, "BRETT'S ACT, ALWAYS"); this
+# file is the entry beside it and makes no tag.
+contract_bundle_version: dox-v1.0
 
-entries: []
+# ===========================================================================
+# WHAT AN ENTRY IS, AND WHERE EVERY FIELD CAME FROM.
+#
+# NOTHING IN THIS TREE VALIDATES THIS FILE — see the note further down, which
+# predates this bundle and is still true. So the shape below is not read off a
+# schema, because there is none; it is lifted field by field from the family
+# artifacts that already answer the same question, and the divergence between
+# them is recorded rather than silently resolved:
+#
+#   `id`, `path`, the leg `repository`, the leg `commit`, `sha256`
+#       the five columns of openxFactory's OWN contract-v4.0 relocation table
+#       (`contracts/CHANGELOG.md`, "manifest `id` | path it held | canonical
+#       home | leg commit | `sha256`, unchanged"), which is the table that
+#       shed three of the rows below INTO this project.
+#   `type`, `contract_schema_version`, `release_member`
+#       openxFactory's `contracts/hermes-runtime/contract-index.yaml` row
+#       fields, unchanged in spelling.
+#
+# THE ONE NEW THING is that a row addresses a file in a PINNED SUBMODULE rather
+# than in this tree. That is what a three-repository project's bundle IS: the
+# root holds no contract bytes of its own and a consumer's pin points here, so
+# the bundle can only be the legs at the commits `contracts/spec-pin.yaml` and
+# `contracts/code-pin.yaml` name. Each `commit:` below is EXACTLY the value in
+# those pin files — if they disagree, the pin files are right and this is stale.
+#
+# THE KEY IS `entries:` AND IS NOT BEING RENAMED. `opensoft/openXwallet` uses
+# `contracts:` and `kind: contract_manifest`; openxFactory uses `contracts:` and
+# no `kind:` at all; this project declared `entries:` and `kind:
+# contract-manifest` at bootstrap. openXwallet's own manifest states the rule
+# that settles it — "Machine keys do NOT move in v1 (R2, LOCKED) … a rename
+# inside the move is unbisectable" — and a first release is the worst moment to
+# rename the key a consumer would pin. The three-way divergence is registered on
+# `#656` (comment 5767092136) for a later ruling, not decided here.
+#
+# RELEASE-SURFACE SELECTION RULE, declared rather than inferred, on
+# openXwallet's precedent ("wallet-vN.M.digests.yaml selects { row |
+# row.member_class == "owned" }"):
+#
+#     dox-vN.M  selects  { entry | entry.release_member == true }
+#
+# Selection is by DECLARED FIELD, never by a `contracts/schemas/` path
+# heuristic — that heuristic breaks the day this project publishes a schema of
+# its own that is not a catalog member. AND MEMBERSHIP IS NOT THIS PROJECT'S TO
+# ASSERT: openxFactory's contract-v4.0 entry rules that "inventory membership is
+# catalog-driven from `contracts/hermes-runtime/contract-index.yaml`, not from
+# `manifest.yaml`", naming `xfactory-workbench-chat-turn` and
+# `xfactory-workbench-model-catalog` as members that STAY members, consumed at
+# this pin. `ideation-workbench` is absent from that catalog's 51 rows, so it is
+# `false` by measurement rather than by anybody's judgement.
+#
+# `adapter_owner:` and `intended_consumers:` are deliberately ABSENT. Nothing in
+# this tree reads them and a first bundle carrying fields no reader consumes is
+# decoration; either is one additive line the day a consumer needs it.
+#
+# THE CODE LEG CONTRIBUTES NO ENTRY. `opensoft/openDox-code` at
+# d816cf06f1c9752a39c2b71ba40adc4ae3f3bf66 carries no `contracts/` path at all
+# (measured with `git ls-tree -r`), so its absence from the list below is a fact
+# about that leg and not an omission.
+# ===========================================================================
+
+entries:
+  # ---- openxFactory catalog release members, consumed at this pin ----
+  # Both carry at this commit EXACTLY the sha256 openxFactory recorded for them
+  # at contract-v3.7 and re-asserted at contract-v4.0 — recomputed here from the
+  # pinned leg's own object store, not copied from that table.
+  - id: xfactory-workbench-chat-turn
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    path: contracts/schemas/xfactory-workbench-chat-turn.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "350bfedc02696e7281a42c0bdc9a25059bf7af14d16d89d9f07018d3e691dc1d"
+    release_member: true
+  - id: xfactory-workbench-model-catalog
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    path: contracts/schemas/xfactory-workbench-model-catalog.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "e563cc9fc6ede03dfd62537935d0ae0842617d7de46702aee6ad9026aa021635"
+    release_member: true
+  # ---- this project's own, in no openxFactory catalog ----
+  - id: ideation-workbench
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    path: contracts/schemas/ideation-workbench.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "d30438491119c20928fbe4e85088fc33682829eeb6558d87dafce651000faafc"
+    release_member: false
 
 # ===========================================================================
 # CARVE PROVENANCE — the slot was declared before the carve, and the carve has
