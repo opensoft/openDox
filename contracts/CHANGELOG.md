@@ -74,8 +74,8 @@ issue #656 comment `5894235642`:
 `dox-v1.0` → `dox-v1.1`. `entries:` gains one row; the three `dox-v1.0` rows are
 unedited in substance — only their `commit:` field advances with the spec
 leg's pin, to the same commit this cut PR records below, because the leg's
-gitlink and `contracts/spec-pin.yaml` move in the one commit `scripts/
-validate-pins.py` requires. None of their `sha256` digests changes.
+gitlink and `contracts/spec-pin.yaml` move in the one commit
+`scripts/validate-pins.py` requires. None of their `sha256` digests changes.
 
 ### What the bundle is
 
