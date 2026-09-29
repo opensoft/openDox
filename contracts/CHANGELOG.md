@@ -1,6 +1,6 @@
 # openDox Contract Changelog
 
-Status: draft
+Status: standard
 
 The project's release history. A bundle is `dox-v<major>.<minor>` and is
 identified by four coordinated values: `contract_bundle_version` in
@@ -18,7 +18,7 @@ Membership is catalog-driven from openxFactory's
 `contracts/hermes-runtime/contract-index.yaml` and is not this project's to
 assert.
 
-**`Status: standard` was reached once, on the operator's word, with all four
+**`Status: standard` was first reached on the operator's word, with all four
 coordinated values in place for `dox-v1.0`.** This entry landed BEFORE its tag
 existed — openxFactory's own lane/operator split (RULED ASK-9a → 1: *"the lane
 authors and lands the cut PR … the annotated tag is Brett's act"*) — and while
@@ -35,17 +35,22 @@ published, annotated tag object `608236a19ccd93fbfccf01b96035ff257b3c4b19`, over
 — item 3, recorded at [#656 comment
 5767804734](https://github.com/opensoft/openxFactory/issues/656#issuecomment-5767804734).
 
-**`Status: draft` again, for the SAME reason, now over `dox-v1.1`.** This cut PR
-moves `contract_bundle_version` to `dox-v1.1` and adds its manifest row and this
-section, but the annotated `dox-v1.1` tag does not exist yet — the same
-lane/operator split, on the SAME rule (RULED ASK-9a → 1). RULED — Brett Heap,
-2026-09-29, `opensoft/openxFactory` issue #656 comment 5894235642: *"Same as
-v1.0 (Recommended)"* — the lane authors and lands this cut PR, and the operator
-cuts the tag when the draft is green, mirroring dox-v1.0's own `5767052465`.
-`dox-v1.0` itself is unaffected: its own tag, entries and digests stand as
-published above regardless of `dox-v1.1`'s own window. This header promotes back
-to `standard` once the `dox-v1.1` tag exists, by the same act as before — no
-second open question is needed, the rule already covers it.
+**`Status: draft` again over `dox-v1.1`'s own window, for the SAME reason, and
+`standard` again now that the window has closed.** The cut PR
+(`opensoft/openDox#14`) moved `contract_bundle_version` to `dox-v1.1` and added
+its manifest row and the `dox-v1.1` section before the annotated `dox-v1.1` tag
+existed — the same lane/operator split, on the SAME rule (RULED ASK-9a → 1).
+RULED — Brett Heap, 2026-09-29, `opensoft/openxFactory` issue #656 comment
+5894235642: *"Same as v1.0 (Recommended)"* — the lane authors and lands the cut
+PR, and the annotated tag is cut over that root commit when the draft is green,
+mirroring dox-v1.0's own `5767052465`. That window closed 2026-09-29: `dox-v1.1`
+is cut and published, annotated tag object
+`851a28e966d011518c19b0abd321502288ac12ea`, over
+`520052139d10e98c2894abafa315fa924a6fd495` (the landed commit of #14), tagger
+Brett Heap, 2026-09-29T18:43:27Z. The header promotes back to `standard` by the
+same act as before, on the rule this paragraph registered while the window was
+open, so no second open question was needed. `dox-v1.0` itself is unaffected:
+its own tag, entries and digests stand as published above.
 
 `openxFactory`'s own contract changelog still carries `draft` across
 twenty-plus published releases and `docs/document-lifecycle.md` still does not
@@ -54,8 +59,8 @@ about this one.
 
 ## Unreleased
 
-- 2026-09-29: nothing pending beyond `dox-v1.1` below. `openDox-spec` main is
-  `f7ee3c76`, the commit this bundle pins. `openDox-code` carries no
+- 2026-09-29: nothing pending. `openDox-spec` main is `f7ee3c76`, the commit
+  `dox-v1.1` pins. `openDox-code` carries no
   `contracts/` path at any commit; `contracts/code-pin.yaml` still pins
   `2d116415` (plan 034 T039's phase-1 root pin, unmoved by this cut) — that is
   the BUNDLE'S pin, not a claim about the leg's own current `main`, which has
