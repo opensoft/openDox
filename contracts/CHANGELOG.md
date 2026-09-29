@@ -55,9 +55,11 @@ about this one.
 ## Unreleased
 
 - 2026-09-29: nothing pending beyond `dox-v1.1` below. `openDox-spec` main is
-  `f7ee3c76`, the commit this bundle pins, and `openDox-code` carries no
-  `contracts/` path at any commit — its main is at `2d116415` (plan 034 T039's
-  phase-1 root pin, unmoved by this cut), which moves no contract byte.
+  `f7ee3c76`, the commit this bundle pins. `openDox-code` carries no
+  `contracts/` path at any commit; `contracts/code-pin.yaml` still pins
+  `2d116415` (plan 034 T039's phase-1 root pin, unmoved by this cut) — that is
+  the BUNDLE'S pin, not a claim about the leg's own current `main`, which has
+  since advanced independently of any contract byte.
 
 ## dox-v1.1 — 2026-09-29 (an additive minor: openDox's own neutral snapshot contract, plan 034 T053)
 
