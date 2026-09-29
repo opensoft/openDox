@@ -1,6 +1,6 @@
 # openDox Contract Changelog
 
-Status: standard
+Status: draft
 
 The project's release history. A bundle is `dox-v<major>.<minor>` and is
 identified by four coordinated values: `contract_bundle_version` in
@@ -18,38 +18,103 @@ Membership is catalog-driven from openxFactory's
 `contracts/hermes-runtime/contract-index.yaml` and is not this project's to
 assert.
 
-**`Status: standard`, on the operator's word, with all four coordinated values
-now in place.** This entry landed BEFORE its tag existed — openxFactory's own
-lane/operator split (RULED ASK-9a → 1: *"the lane authors and lands the cut PR …
-the annotated tag is Brett's act"*) — and while the tag did not exist a
-`standard` header would have asserted a published bundle that did not, so the
-header read `draft` through that window and the promotion was registered as an
-open question on `opensoft/openxFactory` issue #656 (comment 5767092136).
-
-**That window is closed.** `dox-v1.0` is cut and published: annotated tag object
-`608236a19ccd93fbfccf01b96035ff257b3c4b19`, over `dc7aa08fe48c8d17b596b0daa1ce87cdc0472aca`, tagger
-Brett Heap, 2026-09-21T20:59:17Z. So `contract_bundle_version` in
-[`manifest.yaml`](./manifest.yaml), that file's `entries:` rows with their
-per-file digests, the annotated tag, and the entry below now all name the same
-bundle together — which is the coordinated identity
-`opensoft/openXwallet`'s contract changelog describes and the reason it carries
-`Status: standard` too. Promoted on Brett Heap's word, verbatim 2026-09-21:
+**`Status: standard` was reached once, on the operator's word, with all four
+coordinated values in place for `dox-v1.0`.** This entry landed BEFORE its tag
+existed — openxFactory's own lane/operator split (RULED ASK-9a → 1: *"the lane
+authors and lands the cut PR … the annotated tag is Brett's act"*) — and while
+the tag did not exist a `standard` header would have asserted a published
+bundle that did not, so the header read `draft` through that window and the
+promotion was registered as an open question on `opensoft/openxFactory` issue
+#656 (comment 5767092136). That window closed 2026-09-21: `dox-v1.0` is cut and
+published, annotated tag object `608236a19ccd93fbfccf01b96035ff257b3c4b19`, over
+`dc7aa08fe48c8d17b596b0daa1ce87cdc0472aca`, tagger Brett Heap,
+2026-09-21T20:59:17Z, promoted on Brett Heap's word, verbatim:
 
 > **"(a) for all four, (i) for the tag, keep going"**
 
 — item 3, recorded at [#656 comment
 5767804734](https://github.com/opensoft/openxFactory/issues/656#issuecomment-5767804734).
-`openxFactory`'s own contract changelog still carries `draft` across twenty-plus
-published releases and `docs/document-lifecycle.md` still does not mention a
-changelog; neither was ever a rule, and neither is now an argument about this
-one.
+
+**`Status: draft` again, for the SAME reason, now over `dox-v1.1`.** This cut PR
+moves `contract_bundle_version` to `dox-v1.1` and adds its manifest row and this
+section, but the annotated `dox-v1.1` tag does not exist yet — the same
+lane/operator split, on the SAME rule (RULED ASK-9a → 1). RULED — Brett Heap,
+2026-09-29, `opensoft/openxFactory` issue #656 comment 5894235642: *"Same as
+v1.0 (Recommended)"* — the lane authors and lands this cut PR, and the operator
+cuts the tag when the draft is green, mirroring dox-v1.0's own `5767052465`.
+`dox-v1.0` itself is unaffected: its own tag, entries and digests stand as
+published above regardless of `dox-v1.1`'s own window. This header promotes back
+to `standard` once the `dox-v1.1` tag exists, by the same act as before — no
+second open question is needed, the rule already covers it.
+
+`openxFactory`'s own contract changelog still carries `draft` across
+twenty-plus published releases and `docs/document-lifecycle.md` still does not
+mention a changelog; neither was ever a rule, and neither is now an argument
+about this one.
 
 ## Unreleased
 
-- 2026-09-21: nothing pending. `openDox-spec` main is `8fe8c4c7`, the commit
-  this bundle pins, and `openDox-code` carries no `contracts/` path at any
-  commit — its main has advanced past this root's pin to `1d4ac83c` (#33, test
-  hygiene behind the pin), which moves no contract byte.
+- 2026-09-29: nothing pending beyond `dox-v1.1` below. `openDox-spec` main is
+  `f7ee3c76`, the commit this bundle pins, and `openDox-code` carries no
+  `contracts/` path at any commit — its main is at `2d116415` (plan 034 T039's
+  phase-1 root pin, unmoved by this cut), which moves no contract byte.
+
+## dox-v1.1 — 2026-09-29 (an additive minor: openDox's own neutral snapshot contract, plan 034 T053)
+
+Realizes plan 034 **T053** (`specs/034-opendox-standalone-operation/`,
+`opensoft/openxFactory`), Ruled R1Q11 (a) and R1Q12 (a) (`#656` comment
+`5850003126`). Cut under RULED — Brett Heap, 2026-09-29, `opensoft/openxFactory`
+issue #656 comment `5894235642`:
+
+> **"Same as v1.0 (Recommended)."**
+
+**Change class: an additive minor.** `contract_bundle_version` moves
+`dox-v1.0` → `dox-v1.1`. `entries:` gains one row; the three `dox-v1.0` rows are
+unedited in substance — only their `commit:` field advances with the spec
+leg's pin, to the same commit this cut PR records below, because the leg's
+gitlink and `contracts/spec-pin.yaml` move in the one commit `scripts/
+validate-pins.py` requires. None of their `sha256` digests changes.
+
+### What the bundle is
+
+The root commit that names both legs, and those legs:
+
+| leg | repository | commit | contract bytes |
+|---|---|---|---|
+| code | `opensoft/openDox-code` | `2d116415159b721b55613fe20a159afc46202d1f` | none — no `contracts/` path at any commit (unchanged by this cut; last moved by plan 034 T039, unrelated) |
+| spec | `opensoft/openDox-spec` | `f7ee3c763b3af4581daf1cd54406e5111e9358e6` | the four schemas below (`opensoft/openDox-spec#16`, squash-merged; same tree, `7b00d19e`, as its branch head `cd49eb25`) |
+
+| `id` | path in the spec leg | `sha256` | `release_member` |
+|---|---|---|---|
+| `xfactory-workbench-chat-turn` | `contracts/schemas/xfactory-workbench-chat-turn.schema.yaml` | `350bfedc02696e7281a42c0bdc9a25059bf7af14d16d89d9f07018d3e691dc1d` | **true** (unchanged) |
+| `xfactory-workbench-model-catalog` | `contracts/schemas/xfactory-workbench-model-catalog.schema.yaml` | `e563cc9fc6ede03dfd62537935d0ae0842617d7de46702aee6ad9026aa021635` | **true** (unchanged) |
+| `ideation-workbench` | `contracts/schemas/ideation-workbench.schema.yaml` | `d30438491119c20928fbe4e85088fc33682829eeb6558d87dafce651000faafc` | false (unchanged) |
+| `opendox-snapshot` | `contracts/schemas/opendox-snapshot.schema.yaml` | `f9e3e111af1d4bd4c377c933027d81b582ae2b0a395b66f4e4621992454a584a` | false |
+
+**`opendox-snapshot` is `false` by measurement, exactly as `ideation-workbench`
+is**: absent from openxFactory's `contracts/hermes-runtime/contract-index.yaml`
+(the same 51 rows dox-v1.0 measured against), so membership is not this
+project's to assert (`manifest.yaml`'s own release-surface rule). It covers
+what openDox's own neutral generator writes over a plain repository and what
+its views read, with no consumer installed; openXdox-spec's own
+`ideation-dashboard-snapshot` is unchanged and untouched (R1Q12 (a)) — the two
+contracts are siblings, not a migration.
+
+### Provenance
+
+No contract byte moved to reach this bundle from a source outside the arc:
+the schema is new content the T053 writer authored in the spec leg, digest-
+verified above from the pinned leg's own object store, not copied from
+anywhere. `dox-v1.0`'s own carve provenance (`manifest.yaml`'s `carved_from:`)
+is unaffected and unchanged.
+
+### The tag
+
+`dox-v1.1`, annotated, in `opensoft/openDox`, over this root commit. **Not cut
+by this pull request.** Cut by the operator when the draft is green, RULED
+`opensoft/openxFactory#656` comment `5894235642`, the same two-step shape as
+`dox-v1.0`'s own comment `5767052465`. Runbook `docs/opendox-cutover-runbook.md`
+§ 9 Phase 6.
 
 ## dox-v1.0 — 2026-09-21 (the first bundle: openDox's contract surface is the carved spec leg's three schemas, two of them openxFactory catalog release members consumed at this pin)
 
