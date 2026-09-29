@@ -4,14 +4,22 @@ kind: contract-manifest
 project: opendox
 
 # THE FIRST BUNDLE. `contract_bundle_version` stood at `none` with `entries: []`
-# from the 2026-09-06 bootstrap until this commit, which is the honest starting
-# state for a project that had released nothing — not a step somebody forgot.
-# `dox-v1.0` is cut under RULED (a), Brett Heap 2026-09-21, `opensoft/openxFactory`
-# issue #656 comment 5767052465: "(a) for both, cut the tags when the drafts are
-# green." The annotated tag over the commit that names both legs plus these
-# entries is the operator's act (runbook § 9 Phase 6, "BRETT'S ACT, ALWAYS"); this
-# file is the entry beside it and makes no tag.
-contract_bundle_version: dox-v1.0
+# from the 2026-09-06 bootstrap until dox-v1.0, the honest starting state for a
+# project that had released nothing — not a step somebody forgot. `dox-v1.0` was
+# cut under RULED (a), Brett Heap 2026-09-21, `opensoft/openxFactory` issue #656
+# comment 5767052465: "(a) for both, cut the tags when the drafts are green."
+#
+# DOX-V1.1, AN ADDITIVE MINOR: plan 034 T053 gives openDox its own neutral
+# snapshot contract in the spec leg (`opensoft/openDox-spec#16`, landed
+# `f7ee3c76`). Cut under RULED, Brett Heap 2026-09-29, `opensoft/openxFactory`
+# issue #656 comment 5894235642: "Same as v1.0 (Recommended)" — the lane authors
+# and lands this cut PR, and the operator cuts the tag when the draft is green,
+# the same two-step shape as dox-v1.0 (comment 5767052465).
+#
+# The annotated tag over the commit that names both legs plus these entries is
+# the operator's act (runbook § 9 Phase 6, "BRETT'S ACT, ALWAYS"); this file is
+# the entry beside it and makes no tag.
+contract_bundle_version: dox-v1.1
 
 # ===========================================================================
 # WHAT AN ENTRY IS, AND WHERE EVERY FIELD CAME FROM.
@@ -81,7 +89,7 @@ entries:
   - id: xfactory-workbench-chat-turn
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
     path: contracts/schemas/xfactory-workbench-chat-turn.schema.yaml
     type: release-schema
     contract_schema_version: 1
@@ -90,7 +98,7 @@ entries:
   - id: xfactory-workbench-model-catalog
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
     path: contracts/schemas/xfactory-workbench-model-catalog.schema.yaml
     type: release-schema
     contract_schema_version: 1
@@ -100,11 +108,23 @@ entries:
   - id: ideation-workbench
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "8fe8c4c71c4da8d363394441ad9e2c9547e540a3"
+    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
     path: contracts/schemas/ideation-workbench.schema.yaml
     type: release-schema
     contract_schema_version: 1
     sha256: "d30438491119c20928fbe4e85088fc33682829eeb6558d87dafce651000faafc"
+    release_member: false
+  # ---- dox-v1.1: openDox's own neutral snapshot contract (plan 034 T053;
+  # R1Q11 (a), R1Q12 (a), opensoft/openxFactory#656 comment 5850003126). Absent
+  # from openxFactory's contract-index.yaml, so `false` by measurement. ----
+  - id: opendox-snapshot
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
+    path: contracts/schemas/opendox-snapshot.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "f9e3e111af1d4bd4c377c933027d81b582ae2b0a395b66f4e4621992454a584a"
     release_member: false
 
 # ===========================================================================
