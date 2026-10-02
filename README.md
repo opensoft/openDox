@@ -25,7 +25,8 @@ here, and continues.
 
 ## Install and run
 
-The standalone install and its one start are two lines:
+Python 3.12 or later is required (the code leg's `requires-python`). The
+standalone install and its one start are two lines:
 
 ```sh
 pip install "opendox[local]"
