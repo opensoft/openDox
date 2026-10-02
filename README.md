@@ -23,6 +23,43 @@ neutral validators, and prints whatever review authority a wallet register
 names for this project — or says plainly that authority is not wallet-carried
 here, and continues.
 
+## Install and run
+
+The standalone install and its one start are two lines:
+
+```sh
+pip install "opendox[local]"
+opendox generate-and-open --local …
+```
+
+The flag selects the local mode explicitly, and the `local` extra carries the
+bundled server that mode starts. After the install, that start is the single
+command a user runs. It needs no sibling product, no database of the user's
+own, no identity broker and no model, and the bundled server stops when the
+command does. In local mode the server binds loopback only.
+
+The `…` stands for the verb's own arguments, which follow it as every option
+does. Two are required: `--repo-root`, the plain git repository of Markdown
+documents to open (front matter is not required), and `--repository`, a name
+for it, which the snapshot records as its repository id. The served actor is
+that repository's `git config user.name`, unless `--actor` names one.
+`--no-open` prints the URL without launching a browser, `--port N` fixes the
+port, and `opendox generate-and-open --help` lists the rest.
+
+**Where `opendox` comes from.** `opendox` is the distribution this project's
+code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
+`contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox`,
+declares the `local` extra, and declares the `opendox` console script. As of
+2026-10-02 no release of it is published to PyPI, so the first line has nothing
+to resolve from the default package index. Until one is, install the same
+distribution and extra from a recursive clone of this repository, with
+`pip install "./code[local]"` in place of the first line, and run the second
+line unchanged.
+
+This root adds no `make` target for the command: its `Makefile` carries a row
+in `contracts/shape-pin.yaml`, so the entry point stays the code leg's console
+script.
+
 ## The three legs
 
 | role | repository | path | holds |
