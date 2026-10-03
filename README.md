@@ -33,11 +33,10 @@ pip install "opendox[local]"
 opendox generate-and-open --local …
 ```
 
-The flag selects the local mode explicitly, and the `local` extra carries the
-bundled server that mode starts. After the install, that start is the single
-command a user runs. It needs no sibling product, no database of the user's
-own, no identity broker and no model, and the bundled server stops when the
-command does. In local mode the server binds loopback only.
+The flag selects the local mode explicitly: it needs no identity broker, and
+the server binds loopback only, so a non-loopback `--host` is refused. After the
+install, that start is the single command a user runs. It needs no sibling
+product, no database of the user's own and no model.
 
 The `…` stands for the verb's own arguments, which follow it as every option
 does. Two are required: `--repo-root`, the plain git repository of Markdown
@@ -49,13 +48,12 @@ port, and `opendox generate-and-open --help` lists the rest.
 
 **Where `opendox` comes from.** `opendox` is the distribution this project's
 code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
-`contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox`,
-declares the `local` extra, and declares the `opendox` console script. As of
-2026-10-02 no release of it is published to PyPI, so the first line has nothing
-to resolve from the default package index. Until one is, install the same
-distribution and extra from a recursive clone of this repository, with
-`pip install "./code[local]"` in place of the first line, and run the second
-line unchanged.
+`contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox` and
+declares the `opendox` console script. As of 2026-10-03 no release of it is
+published to PyPI, so the first line has nothing to resolve from the default
+package index. Until one is, install the same distribution from a recursive
+clone of this repository, with `pip install ./code` in place of the first line,
+and run the second line unchanged.
 
 This root adds no `make` target for the command: its `Makefile` carries a row
 in `contracts/shape-pin.yaml`, so the entry point stays the code leg's console
