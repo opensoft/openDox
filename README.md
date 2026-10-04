@@ -69,6 +69,13 @@ URL: the copy forwards to the server's page and carries the token there. The
 plain `http://127.0.0.1:<port>/index.html` URL the start also prints loads the
 page without the token. The copy is removed when the command stops.
 
+A browser that cannot reach the default state directory (`~/.local/state`)
+cannot open the copy: a Snap or Flatpak browser, and a Windows browser running
+under WSL, are the known cases. This is a known limit of release 1. The start
+prints one extra line saying so, with no token. The remedy is to set
+`OPENDOX_STATE_DIR` to a non-hidden folder this user owns, and to restart the
+command, so that the copy is written there.
+
 **Where `opendox` comes from.** `opendox` is the distribution this project's
 code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
 `contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox` and
