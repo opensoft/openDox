@@ -52,18 +52,22 @@ The `…` stands for the verb's own arguments, which follow it as every option
 does. Two are required: `--repo-root`, the plain git repository of Markdown
 documents to open (front matter is not required), and `--repository`, a name
 for it, which the snapshot records as its repository id. The served actor is
-that repository's `git config user.name`, unless `--actor` names one.
-`--no-open` launches no browser, `--port N` fixes the port, and
-`opendox generate-and-open --help` lists the rest.
+that repository's `git config user.name`. `--actor` is only a claim, and it
+must match an identity the install can establish, so it cannot name an
+arbitrary person. With no established actor (no `user.name`, or an unmatched
+`--actor`) the page is served without its edit and session actions, no console
+file is written, and the start prints only the plain URL. `--no-open` launches
+no browser, `--port N` fixes the port, and `opendox generate-and-open --help`
+lists the rest.
 
-**Opening the page.** The start writes a private copy of the console's opening
-page, `<OPENDOX_STATE_DIR>/console/<port>.html` (mode 0600, this user's only),
-and prints its location as a `file://` URL, never the console token, with or
-without `--no-open`. Without `--no-open` the browser is opened through that
-copy. To open the page again, open the printed `file://` URL: the copy forwards
-to the server's page and carries the token there. The plain
-`http://127.0.0.1:<port>/index.html` URL the start also prints loads the page
-without the token. The copy is removed when the command stops.
+**Opening the page.** With an established actor, the start writes a private
+copy of the console's opening page, `<OPENDOX_STATE_DIR>/console/<port>.html`
+(mode 0600, this user's only), and prints its location as a `file://` URL, never
+the console token, with or without `--no-open`. Without `--no-open` the browser
+is opened through that copy. To open the page again, open the printed `file://`
+URL: the copy forwards to the server's page and carries the token there. The
+plain `http://127.0.0.1:<port>/index.html` URL the start also prints loads the
+page without the token. The copy is removed when the command stops.
 
 **Where `opendox` comes from.** `opendox` is the distribution this project's
 code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
