@@ -25,8 +25,10 @@ here, and continues.
 
 ## Install and run
 
-Python 3.12 or later is required (the code leg's `requires-python`). The
-standalone install and its one start are two lines:
+Python 3.12 or later is required (the code leg's `requires-python`). The local
+start also needs a POSIX platform, so native Windows is refused by name, and an
+ordinary user: it refuses to run as root. The standalone install and its one
+start are two lines:
 
 ```sh
 pip install "opendox[local]"
