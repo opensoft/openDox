@@ -33,27 +33,47 @@ pip install "opendox[local]"
 opendox generate-and-open --local …
 ```
 
-The flag selects the local mode explicitly: it needs no identity broker, and
-the server binds loopback only, so a non-loopback `--host` is refused. After the
+The flag selects the local mode explicitly, and the `local` extra carries the
+runtime's packages and the bundled PostgreSQL server that mode starts. After the
 install, that start is the single command a user runs. It needs no sibling
-product, no database of the user's own and no model.
+product, no database of the user's own, no identity broker and no model. The
+start launches the bundled server as its own child, keeps its data and its
+socket under `OPENDOX_STATE_DIR` (default `$XDG_STATE_HOME/opendox`, else
+`~/.local/state/opendox`; an absolute path, short enough for a Unix socket),
+opens no TCP port for it, and stops it when the command stops.
+
+In local mode the server binds loopback only, so a non-loopback `--host` is
+refused. It also answers only a request whose `Host` names it
+(`127.0.0.1:<port>` or `localhost:<port>`, or `[::1]:<port>` where it is bound
+to `::1`): any other, such as a tunnel's or a proxy's name, gets a 403
+`invalid_host`.
 
 The `…` stands for the verb's own arguments, which follow it as every option
 does. Two are required: `--repo-root`, the plain git repository of Markdown
 documents to open (front matter is not required), and `--repository`, a name
 for it, which the snapshot records as its repository id. The served actor is
 that repository's `git config user.name`, unless `--actor` names one.
-`--no-open` prints the URL without launching a browser, `--port N` fixes the
-port, and `opendox generate-and-open --help` lists the rest.
+`--no-open` launches no browser, `--port N` fixes the port, and
+`opendox generate-and-open --help` lists the rest.
+
+**Opening the page.** The start writes a private copy of the console's opening
+page, `<OPENDOX_STATE_DIR>/console/<port>.html` (mode 0600, this user's only),
+and prints its location as a `file://` URL, never the console token, with or
+without `--no-open`. Without `--no-open` the browser is opened through that
+copy. To open the page again, open the printed `file://` URL: the copy forwards
+to the server's page and carries the token there. The plain
+`http://127.0.0.1:<port>/index.html` URL the start also prints loads the page
+without the token. The copy is removed when the command stops.
 
 **Where `opendox` comes from.** `opendox` is the distribution this project's
 code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
 `contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox` and
-declares the `opendox` console script. As of 2026-10-03 no release of it is
-published to PyPI, so the first line has nothing to resolve from the default
-package index. Until one is, install the same distribution from a recursive
-clone of this repository, with `pip install ./code` in place of the first line,
-and run the second line unchanged.
+declares the `local` extra and the `opendox` console script. As of 2026-10-04
+no release of it is published to PyPI, so the first line has nothing to resolve
+from the default package index. Until one is, install the same distribution and
+extra from a recursive clone of this repository, run from its root, with
+`pip install "./code[local]"` in place of the first line, and run the second
+line unchanged.
 
 This root adds no `make` target for the command: its `Makefile` carries a row
 in `contracts/shape-pin.yaml`, so the entry point stays the code leg's console
