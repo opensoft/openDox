@@ -91,15 +91,14 @@ hidden, owned by this user and apart from the repository the command serves
 (the start refuses, by name, a state directory inside that repository or one
 that holds it), and start again.
 
-**Where `opendox` comes from.** `opendox` is the distribution this project's
-code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
-`contracts/code-pin.yaml` pins. Its `pyproject.toml` names it `opendox` and
-declares the `local` extra and the `opendox` console script. As of 2026-10-04
-no release of it is published to PyPI, so the first line has nothing to resolve
-from the default package index. Until one is, install the same distribution and
-extra from a recursive clone of this repository, run from its root, with
-`pip install "./code[local]"` in place of the first line, and run the second
-line unchanged.
+**Where `opendox` comes from.** The first line, `pip install "opendox[local]"`,
+installs `opendox` from PyPI, the default package index. `opendox` is the
+distribution this project's code leg builds: `code/` here, which is
+`opensoft/openDox-code` at the commit `contracts/code-pin.yaml` pins. Its
+`pyproject.toml` names it `opendox` and declares the `local` extra and the
+`opendox` console script. Release 0.1.0 on PyPI was built from the commit this
+root pinned at release 1's cut, and published by trusted publishing, with no
+stored token.
 
 This root adds no `make` target for the command: its `Makefile` carries a row
 in `contracts/shape-pin.yaml`, so the entry point stays the code leg's console
