@@ -69,14 +69,24 @@ the console token, with or without `--no-open`. Without `--no-open` the browser
 is opened through that copy. To open the page again, open the printed `file://`
 URL: the copy forwards to the server's page and carries the token there. The
 plain `http://127.0.0.1:<port>/index.html` URL the start also prints loads the
-page without the token. The copy is removed when the command stops.
+page without the token. The copy is removed when the command stops. Each start
+makes a new token, so after a restart open the new file: a tab left open from an
+earlier start is refused until the page is opened again through the new copy.
 
-A browser that cannot reach the default state directory (`~/.local/state`)
-cannot open the copy: a Snap or Flatpak browser, and a Windows browser running
-under WSL, are the known cases. This is a known limit of release 1. The start
-prints one extra line saying so, with no token. The remedy is to set
-`OPENDOX_STATE_DIR` to a non-hidden folder this user owns, and to restart the
-command, so that the copy is written there.
+An accepted limit of release 1: some browsers cannot open the copy's `file://`
+URL while the state directory is the hidden default (`~/.local/state/opendox`).
+Ubuntu's default Snap browser, a Flatpak browser, and a Windows browser under
+WSL are the known cases. The start prints one more line, with no token, saying
+so:
+
+```text
+if your browser cannot open this file (a snap or Flatpak browser, or a Windows browser under WSL), set OPENDOX_STATE_DIR to a folder that is not hidden and start again
+```
+
+The remedy is that line's: set `OPENDOX_STATE_DIR` to a folder that is not
+hidden, owned by this user and apart from the repository the command serves
+(the start refuses, by name, a state directory inside that repository or one
+that holds it), and start again.
 
 **Where `opendox` comes from.** `opendox` is the distribution this project's
 code leg builds: `code/` here, which is `opensoft/openDox-code` at the commit
