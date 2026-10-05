@@ -72,6 +72,9 @@ plain `http://127.0.0.1:<port>/index.html` URL the start also prints loads the
 page without the token. The copy is removed when the command stops. Each start
 makes a new token, so after a restart open the new file: a tab left open from an
 earlier start is refused until the page is opened again through the new copy.
+The browser's own history keeps the opened URL, fragment and token included,
+until that history is cleared; each start makes a new token, so an old entry
+grants no access.
 
 An accepted limit of release 1: some browsers cannot open the copy's `file://`
 URL while the state directory is the hidden default (`~/.local/state/opendox`).
