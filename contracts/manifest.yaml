@@ -16,10 +16,19 @@ project: opendox
 # and lands this cut PR, and the operator cuts the tag when the draft is green,
 # the same two-step shape as dox-v1.0 (comment 5767052465).
 #
+# DOX-V1.2, AN ADDITIVE MINOR: plan 038 T040 gives openDox-spec three health
+# schemas, the finding's neutral shape, `health/packs.yaml` and the exceptions
+# file (`opensoft/openDox-spec#17`, landed `7db9438b`), under R2Q22 (a),
+# `opensoft/openxFactory` issue #656 comment 6003486656, and batch Q's 9.5
+# addendum (`opensoft/openxFactory#1248`). Plan 038 T060: the lane authors and
+# lands this cut PR, and the annotated tag is cut on Brett Heap's cut word,
+# which the lane asks for once this PR lands, the same two-step shape as
+# dox-v1.1 (comment 5894235642).
+#
 # The annotated tag over the commit that names both legs plus these entries is
 # the operator's act (runbook § 9 Phase 6, "BRETT'S ACT, ALWAYS"); this file is
 # the entry beside it and makes no tag.
-contract_bundle_version: dox-v1.1
+contract_bundle_version: dox-v1.2
 
 # ===========================================================================
 # WHAT AN ENTRY IS, AND WHERE EVERY FIELD CAME FROM.
@@ -89,7 +98,7 @@ entries:
   - id: xfactory-workbench-chat-turn
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
     path: contracts/schemas/xfactory-workbench-chat-turn.schema.yaml
     type: release-schema
     contract_schema_version: 1
@@ -98,7 +107,7 @@ entries:
   - id: xfactory-workbench-model-catalog
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
     path: contracts/schemas/xfactory-workbench-model-catalog.schema.yaml
     type: release-schema
     contract_schema_version: 1
@@ -108,7 +117,7 @@ entries:
   - id: ideation-workbench
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
     path: contracts/schemas/ideation-workbench.schema.yaml
     type: release-schema
     contract_schema_version: 1
@@ -120,11 +129,42 @@ entries:
   - id: opendox-snapshot
     leg: spec
     repository: opensoft/openDox-spec
-    commit: "f7ee3c763b3af4581daf1cd54406e5111e9358e6"
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
     path: contracts/schemas/opendox-snapshot.schema.yaml
     type: release-schema
     contract_schema_version: 1
     sha256: "f9e3e111af1d4bd4c377c933027d81b582ae2b0a395b66f4e4621992454a584a"
+    release_member: false
+  # ---- dox-v1.2: openDox's three health schemas (plan 038 T040; R2Q22 (a),
+  # opensoft/openxFactory#656 comment 6003486656). Absent from openxFactory's
+  # contract-index.yaml, so `false` by measurement. The finding is a shape the
+  # engine reads, not a file kind (N-15); the other two are file kinds. ----
+  - id: opendox-health-finding
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
+    path: contracts/schemas/opendox-health-finding.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "6fb9b29f23a4270fa0310624d9e59b5d82e9888a5168600671e90ed30f781016"
+    release_member: false
+  - id: opendox-health-packs
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
+    path: contracts/schemas/opendox-health-packs.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "8a7309eed0db788ea715b868cccfe4d5031cd7750862dc22abb2874df07ebfca"
+    release_member: false
+  - id: opendox-health-dispositions
+    leg: spec
+    repository: opensoft/openDox-spec
+    commit: "7db9438b4cc4446ab4e6ab5b552c220312deccc9"
+    path: contracts/schemas/opendox-health-dispositions.schema.yaml
+    type: release-schema
+    contract_schema_version: 1
+    sha256: "f904bded8333b6e5f9edff756727a6c31cd9a7bfb050a66a76c212db2f0f1103"
     release_member: false
 
 # ===========================================================================
