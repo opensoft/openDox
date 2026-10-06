@@ -1,6 +1,6 @@
 # openDox Contract Changelog
 
-Status: standard
+Status: draft
 
 The project's release history. A bundle is `dox-v<major>.<minor>` and is
 identified by four coordinated values: `contract_bundle_version` in
@@ -36,7 +36,7 @@ published, annotated tag object `608236a19ccd93fbfccf01b96035ff257b3c4b19`, over
 5767804734](https://github.com/opensoft/openxFactory/issues/656#issuecomment-5767804734).
 
 **`Status: draft` again over `dox-v1.1`'s own window, for the SAME reason, and
-`standard` again now that the window has closed.** The cut PR
+`standard` again once that window closed.** The cut PR
 (`opensoft/openDox#14`) moved `contract_bundle_version` to `dox-v1.1` and added
 its manifest row and the `dox-v1.1` section before the annotated `dox-v1.1` tag
 existed — the same lane/operator split, on the SAME rule (RULED ASK-9a → 1).
@@ -47,10 +47,25 @@ mirroring dox-v1.0's own `5767052465`. That window closed 2026-09-29: `dox-v1.1`
 is cut and published, annotated tag object
 `851a28e966d011518c19b0abd321502288ac12ea`, over
 `520052139d10e98c2894abafa315fa924a6fd495` (the landed commit of #14), tagger
-Brett Heap, 2026-09-29T18:43:27Z. The header promotes back to `standard` by the
+Brett Heap, 2026-09-29T18:43:27Z. The header promoted back to `standard` by the
 same act as before, on the rule this paragraph registered while the window was
 open, so no second open question was needed. `dox-v1.0` itself is unaffected:
 its own tag, entries and digests stand as published above.
+
+**`Status: draft` again, for the SAME reason, now over `dox-v1.2`.** This cut PR
+(plan 038 T060) moves `contract_bundle_version` to `dox-v1.2` and adds its three
+manifest rows and the `dox-v1.2` section, but the annotated `dox-v1.2` tag does
+not exist yet — the same lane/operator split, on the SAME rule (RULED ASK-9a →
+1). R2Q22 (a) — Brett Heap, 2026-10-05, `opensoft/openxFactory` issue #656
+comment 6003486656, *"Accept all 25 recommended (Recommended)"* — gives
+openDox-spec the three health schemas and the root one more `dox-v1.y` minor,
+and batch Q's 9.5 addendum (`opensoft/openxFactory#1248`) reads: *"The cut is
+made on Brett Heap's cut word, as `dox-v1.1`'s was (RULED `5894235642`)."* The
+lane asks for that word once this cut PR lands, and the annotated tag is cut
+over this root commit on it. `dox-v1.0` and `dox-v1.1` are unaffected: their own
+tags, entries and digests stand as published. This header promotes back to
+`standard` once the `dox-v1.2` tag exists, by the same act as before — no second
+open question is needed, the rule already covers it.
 
 `openxFactory`'s own contract changelog still carries `draft` across
 twenty-plus published releases and `docs/document-lifecycle.md` still does not
@@ -59,12 +74,74 @@ about this one.
 
 ## Unreleased
 
-- 2026-09-29: nothing pending. `openDox-spec` main is `f7ee3c76`, the commit
-  `dox-v1.1` pins. `openDox-code` carries no
-  `contracts/` path at any commit; `contracts/code-pin.yaml` still pins
-  `2d116415` (plan 034 T039's phase-1 root pin, unmoved by this cut) — that is
-  the BUNDLE'S pin, not a claim about the leg's own current `main`, which has
-  since advanced independently of any contract byte.
+- 2026-10-06: nothing pending beyond `dox-v1.2` below. `openDox-spec` main is
+  `7db9438b`, the commit this bundle pins. `openDox-code` carries no top-level
+  `contracts/` path; `contracts/code-pin.yaml` pins `dede32b4` (plan 034 T087's
+  phase-3 root pin, unmoved by this cut) — that is the BUNDLE'S pin, not a claim
+  about the leg's own current `main`, which has since advanced independently of
+  any contract byte.
+
+## dox-v1.2 — 2026-10-06 (an additive minor: openDox's three health schemas, plan 038 T040)
+
+Realizes plan 038 **T040** and **T060**
+(`specs/038-opendox-document-tool-self-maintenance/`, `opensoft/openxFactory`),
+Ruled R2Q22 (a) (`#656` comment `6003486656`), under batch Q's 9.5 addendum
+(`opensoft/openxFactory#1248`). Cut on Brett Heap's cut word, as `dox-v1.1`'s
+was (RULED `5894235642`); the lane asks for that word once this cut PR lands,
+and it is recorded on `#656`.
+
+**Change class: an additive minor.** `contract_bundle_version` moves
+`dox-v1.1` → `dox-v1.2`. `entries:` gains three rows; the four `dox-v1.1` rows are
+unedited in substance — only their `commit:` field advances with the spec
+leg's pin, to the same commit this cut PR records below, because the leg's
+gitlink and `contracts/spec-pin.yaml` move in the one commit
+`scripts/validate-pins.py` requires. None of their `sha256` digests changes.
+
+### What the bundle is
+
+The root commit that names both legs, and those legs:
+
+| leg | repository | commit | contract bytes |
+|---|---|---|---|
+| code | `opensoft/openDox-code` | `dede32b4b6f3d0f147d599776f83628c5af8ff3d` | none of its own — no top-level `contracts/` path (unchanged by this cut; last moved by plan 034 T087, unrelated). Its `src/opendox/contracts/` holds packaged COPIES of four of the spec leg's schemas, recorded at `f7ee3c76` by `copies.yaml` (plan 034 T057), whose `sha256` equal the four `dox-v1.1` rows below; the three new schemas are copied after this cut (plan 038 T041, T047, T054) |
+| spec | `opensoft/openDox-spec` | `7db9438b4cc4446ab4e6ab5b552c220312deccc9` | the seven schemas below (`opensoft/openDox-spec#17`, squash-merged; same tree, `f143e7dc`, as its branch head `58383189`) |
+
+| `id` | path in the spec leg | `sha256` | `release_member` |
+|---|---|---|---|
+| `xfactory-workbench-chat-turn` | `contracts/schemas/xfactory-workbench-chat-turn.schema.yaml` | `350bfedc02696e7281a42c0bdc9a25059bf7af14d16d89d9f07018d3e691dc1d` | **true** (unchanged) |
+| `xfactory-workbench-model-catalog` | `contracts/schemas/xfactory-workbench-model-catalog.schema.yaml` | `e563cc9fc6ede03dfd62537935d0ae0842617d7de46702aee6ad9026aa021635` | **true** (unchanged) |
+| `ideation-workbench` | `contracts/schemas/ideation-workbench.schema.yaml` | `d30438491119c20928fbe4e85088fc33682829eeb6558d87dafce651000faafc` | false (unchanged) |
+| `opendox-snapshot` | `contracts/schemas/opendox-snapshot.schema.yaml` | `f9e3e111af1d4bd4c377c933027d81b582ae2b0a395b66f4e4621992454a584a` | false (unchanged) |
+| `opendox-health-finding` | `contracts/schemas/opendox-health-finding.schema.yaml` | `6fb9b29f23a4270fa0310624d9e59b5d82e9888a5168600671e90ed30f781016` | false |
+| `opendox-health-packs` | `contracts/schemas/opendox-health-packs.schema.yaml` | `8a7309eed0db788ea715b868cccfe4d5031cd7750862dc22abb2874df07ebfca` | false |
+| `opendox-health-dispositions` | `contracts/schemas/opendox-health-dispositions.schema.yaml` | `f904bded8333b6e5f9edff756727a6c31cd9a7bfb050a66a76c212db2f0f1103` | false |
+
+**The three health schemas are `false` by measurement, exactly as
+`ideation-workbench` and `opendox-snapshot` are**: each is absent from
+openxFactory's `contracts/hermes-runtime/contract-index.yaml` (its 51 rows,
+read at openxFactory `main` `51456835`), so membership is not this project's to
+assert (`manifest.yaml`'s own release-surface rule). `opendox-health-finding` is
+one finding as `opendox health list --json` emits it, a shape the engine reads
+and not a file kind (N-15); `opendox-health-packs` is `health/packs.yaml` and
+`opendox-health-dispositions` is `health/dispositions.yaml`, each a file kind
+whose `kind` constant equals its id.
+
+### Provenance
+
+No contract byte moved to reach this bundle from a source outside the arc:
+the three schemas are new content the T040 writer authored in the spec leg from
+plan 038's `contracts/health-finding.md`, `contracts/health-packs-manifest.md`
+and `contracts/health-exceptions.md`, digest-verified above from the pinned
+leg's own object store, not copied from anywhere. `dox-v1.0`'s own carve
+provenance (`manifest.yaml`'s `carved_from:`) is unaffected and unchanged.
+
+### The tag
+
+`dox-v1.2`, annotated, in `opensoft/openDox`, over this root commit. **Not cut
+by this pull request.** Cut by the operator on Brett Heap's cut word, which the
+lane asks for once this cut PR lands (plan 038 T060; batch Q's 9.5 addendum),
+the same two-step shape as `dox-v1.1`'s own comment `5894235642`. Runbook
+`docs/opendox-cutover-runbook.md` § 9 Phase 6.
 
 ## dox-v1.1 — 2026-09-29 (an additive minor: openDox's own neutral snapshot contract, plan 034 T053)
 
