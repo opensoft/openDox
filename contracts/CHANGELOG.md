@@ -1,6 +1,6 @@
 # openDox Contract Changelog
 
-Status: draft
+Status: standard
 
 The project's release history. A bundle is `dox-v<major>.<minor>` and is
 identified by four coordinated values: `contract_bundle_version` in
@@ -52,20 +52,26 @@ same act as before, on the rule this paragraph registered while the window was
 open, so no second open question was needed. `dox-v1.0` itself is unaffected:
 its own tag, entries and digests stand as published above.
 
-**`Status: draft` again, for the SAME reason, now over `dox-v1.2`.** This cut PR
-(plan 038 T060) moves `contract_bundle_version` to `dox-v1.2` and adds its three
-manifest rows and the `dox-v1.2` section, but the annotated `dox-v1.2` tag does
-not exist yet — the same lane/operator split, on the SAME rule (RULED ASK-9a →
-1). R2Q22 (a) — Brett Heap, 2026-10-05, `opensoft/openxFactory` issue #656
-comment 6003486656, *"Accept all 25 recommended (Recommended)"* — gives
-openDox-spec the three health schemas and the root one more `dox-v1.y` minor,
-and batch Q's 9.5 addendum (`opensoft/openxFactory#1248`) reads: *"The cut is
-made on Brett Heap's cut word, as `dox-v1.1`'s was (RULED `5894235642`)."* The
-lane asks for that word once this cut PR lands, and the annotated tag is cut
-over this root commit on it. `dox-v1.0` and `dox-v1.1` are unaffected: their own
-tags, entries and digests stand as published. This header promotes back to
-`standard` once the `dox-v1.2` tag exists, by the same act as before — no second
-open question is needed, the rule already covers it.
+**`Status: draft` again over `dox-v1.2`'s own window, for the SAME reason, and
+`standard` again now that the window has closed.** The cut PR
+(`opensoft/openDox#20`, plan 038 T060) moved `contract_bundle_version` to
+`dox-v1.2` and added its three manifest rows and the `dox-v1.2` section before
+the annotated `dox-v1.2` tag existed — the same lane/operator split, on the SAME
+rule (RULED ASK-9a → 1). R2Q22 (a) — Brett Heap, 2026-10-05,
+`opensoft/openxFactory` issue #656 comment 6003486656, *"Accept all 25
+recommended (Recommended)"* — gave openDox-spec the three health schemas and the
+root one more `dox-v1.y` minor, and batch Q's 9.5 addendum
+(`opensoft/openxFactory#1248`) reads: *"The cut is made on Brett Heap's cut
+word, as `dox-v1.1`'s was (RULED `5894235642`)."* RULED — Brett Heap,
+2026-10-06, `opensoft/openxFactory` issue #656 comment 6022291206: *"Cut
+dox-v1.2 now (Recommended)"* — the cut word, given once the cut PR had landed.
+That window closed 2026-10-06: `dox-v1.2` is cut and published, annotated tag
+object `58538ff33a953ffd5dfa9b44a7edabd75dada00b`, over
+`6a9f4902285029b4fb02753e2b79be0a137302c5` (the landed commit of #20), tagger
+Brett Heap, 2026-10-06T17:58:45Z. The header promotes back to `standard` by the
+same act as before, on the rule this paragraph registered while the window was
+open, so no second open question was needed. `dox-v1.0` and `dox-v1.1` are
+unaffected: their own tags, entries and digests stand as published.
 
 `openxFactory`'s own contract changelog still carries `draft` across
 twenty-plus published releases and `docs/document-lifecycle.md` still does not
@@ -74,8 +80,8 @@ about this one.
 
 ## Unreleased
 
-- 2026-10-06: nothing pending beyond `dox-v1.2` below. `openDox-spec` main is
-  `7db9438b`, the commit this bundle pins. `openDox-code` carries no top-level
+- 2026-10-06: nothing pending. `openDox-spec` main is `7db9438b`, the commit
+  `dox-v1.2` pins. `openDox-code` carries no top-level
   `contracts/` path; `contracts/code-pin.yaml` pins `dede32b4` (plan 034 T087's
   phase-3 root pin, unmoved by this cut) — that is the BUNDLE'S pin, not a claim
   about the leg's own current `main`, which has since advanced independently of
