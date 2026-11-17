@@ -96,9 +96,9 @@ installs `opendox` from PyPI, the default package index. `opendox` is the
 distribution this project's code leg builds: `code/` here, which is
 `opensoft/openDox-code` at the commit `contracts/code-pin.yaml` pins. Its
 `pyproject.toml` names it `opendox` and declares the `local` extra and the
-`opendox` console script. Release 0.1.0 on PyPI was built from the commit this
-root pinned at release 1's cut, and published by trusted publishing, with no
-stored token.
+`opendox` console script. The current release on PyPI is 0.1.1, built from the
+commit this root pins and published by trusted publishing, with no stored token.
+Release 0.1.0 was built from the commit this root pinned at release 1's cut.
 
 This root adds no `make` target for the command: its `Makefile` carries a row
 in `contracts/shape-pin.yaml`, so the entry point stays the code leg's console
