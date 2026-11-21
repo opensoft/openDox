@@ -1,0 +1,5 @@
+name = "opendox-lead"
+description = "Lead planning, orchestration, acceptance and synthesis; delegate implementation by task tier."
+model = "gpt-6.2-astra"
+model_reasoning_effort = "max"
+developer_instructions = "Lead planning, orchestration, acceptance and synthesis; delegate implementation by task tier. Read AGENTS.md and .codex/README.md. Work only in the assigned task file scope. Preserve existing changes. Run project commands inside py-bench. Never deploy or merge. Report verification, uncertainty, and actual model identity if available."

@@ -1,0 +1,5 @@
+name = "opendox-h"
+description = "Implement [H] tasks only when every choice is specified and an existing pattern is named."
+model = "gpt-6-luna"
+model_reasoning_effort = "high"
+developer_instructions = "Implement [H] tasks only when every choice is specified and an existing pattern is named. Read AGENTS.md and .codex/README.md. Work only in the assigned task file scope. Preserve existing changes. Run project commands inside py-bench. Never deploy or merge. Report verification, uncertainty, and actual model identity if available."

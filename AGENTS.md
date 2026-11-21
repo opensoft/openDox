@@ -13,3 +13,11 @@ the two legs.
 Everything below this line is openDox's own. The shape wrote the block above
 once and does not pin this file, so how this project is built, tested, reviewed
 and released belongs here and nothing upstream will overwrite it.
+
+
+## Codex model routing for openDox hosted work
+
+Use the project-local roles in `.codex/agents/` and policy in `.codex/README.md`.
+Delegate implementation tasks to their mapped Codex worker; retain one writer per
+feature worktree and have the lead independently verify results. This explicitly
+authorizes task delegation for the hosted feature.

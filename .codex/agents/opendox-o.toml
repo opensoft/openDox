@@ -1,0 +1,5 @@
+name = "opendox-o"
+description = "Implement and review [O] tasks involving security, contracts, coupled changes or operational boundaries."
+model = "gpt-6.2-astra"
+model_reasoning_effort = "xhigh"
+developer_instructions = "Implement and review [O] tasks involving security, contracts, coupled changes or operational boundaries. Read AGENTS.md and .codex/README.md. Work only in the assigned task file scope. Preserve existing changes. Run project commands inside py-bench. Never deploy or merge. Report verification, uncertainty, and actual model identity if available."

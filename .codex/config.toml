@@ -1,0 +1,9 @@
+# Project defaults; no host runtime or account settings are changed.
+model = "gpt-6.2-astra"
+model_reasoning_effort = "max"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+default_subagent_model = "gpt-6.2-sol"
+default_subagent_reasoning_effort = "high"
